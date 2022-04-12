@@ -20,7 +20,7 @@ jobs:
           cat ${{ secrets.ACCESS_TOKEN }} > ~/.ssh/id_rsa
           chmod 0600 ~/.ssh/id_rsa
           git clone git@github.com:HynemanKan/HynemanKan.github.io.git
-          git config --global user.email "gitAction@deploy.org"
+          git config --global user.email "gitAction@Hynemankan.cn"
           git config --global user.name "gitAction"
           /bin/cp -rf  ./dist/* ./HynemanKan.github.io/
           cd ./HynemanKan.github.io/
