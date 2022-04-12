@@ -19,8 +19,8 @@ jobs:
           mkdir ~/.ssh/
           cat ${{ secrets.ACCESS_TOKEN }} > ~/.ssh/id_rsa
           git clone https://github.com/HynemanKan/HynemanKan.github.io.git
-          /bin/cp -rf  ./dist/* ./hynemankan.githug.io/
-          cd ./hynemankan.githug.io/
+          /bin/cp -rf  ./dist/* ./HynemanKan.github.io/
+          cd ./HynemanKan.github.io/
           git add *
           git commit -m "auto deploy by github action at $dateString"
           git push
