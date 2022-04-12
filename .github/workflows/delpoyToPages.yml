@@ -17,7 +17,7 @@ jobs:
         run: |
           dateString=$(date)
           mkdir ~/.ssh/
-          cat ${{ secrets.ACCESS_TOKEN }} > ~/.ssh/id_rsa
+          cat ${{ secrets.DEPLOY_PRIVATE_KEY }} > ~/.ssh/id_rsa
           chmod 0600 ~/.ssh/id_rsa
           git clone git@github.com:HynemanKan/HynemanKan.github.io.git
           git config --global user.email "gitAction@Hynemankan.cn"
