@@ -15,7 +15,8 @@ jobs:
 
       - name: Deploy 🚀
         run: |
-          dateString=$(date) 
+          dateString=$(date)
+          mkdir ~/.ssh/
           cat ${{ secrets.ACCESS_TOKEN }} > ~/.ssh/id_rsa
           git clone https://github.com/HynemanKan/HynemanKan.github.io.git
           /bin/cp -rf  ./dist/* ./hynemankan.githug.io/
