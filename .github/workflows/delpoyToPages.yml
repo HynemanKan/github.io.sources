@@ -18,7 +18,7 @@ jobs:
           dateString=$(date)
           mkdir ~/.ssh/
           cat ${{ secrets.ACCESS_TOKEN }} > ~/.ssh/id_rsa
-          git clone https://github.com/HynemanKan/HynemanKan.github.io.git
+          git clone git@github.com:HynemanKan/HynemanKan.github.io.git
           git config --global user.email "gitAction@deploy.org"
           git config --global user.name "gitAction"
           /bin/cp -rf  ./dist/* ./HynemanKan.github.io/
@@ -26,4 +26,3 @@ jobs:
           git add *
           git commit -m "auto deploy by github action at $dateString"
           git push
-          rm ../private_key
