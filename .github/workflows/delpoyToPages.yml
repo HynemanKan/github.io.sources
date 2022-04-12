@@ -1,5 +1,5 @@
 name: Build and Deploy
-on: [push,workflow_dispatch]
+on: [workflow_dispatch]
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
@@ -14,9 +14,13 @@ jobs:
           npm run build
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.0
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
-        env:
-          token: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          dateString=$(date) 
+          cat ${{ secrets.ACCESS_TOKEN }} > ./private_key
+          git clone https://github.com/HynemanKan/HynemanKan.github.io.git -i ./private_key
+          /bin/cp -rf  ./dist/* ./hynemankan.githug.io/
+          cd ./hynemankan.githug.io/
+          git add *
+          git commit -m "auto deploy by github action at $dateString"
+          git push -i ../private_key
+          rm ../private_key
