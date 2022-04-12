@@ -16,11 +16,11 @@ jobs:
       - name: Deploy 🚀
         run: |
           dateString=$(date) 
-          cat ${{ secrets.ACCESS_TOKEN }} > ./private_key
-          git clone https://github.com/HynemanKan/HynemanKan.github.io.git -i ./private_key
+          cat ${{ secrets.ACCESS_TOKEN }} > ~/.ssh/id_rsa
+          git clone https://github.com/HynemanKan/HynemanKan.github.io.git
           /bin/cp -rf  ./dist/* ./hynemankan.githug.io/
           cd ./hynemankan.githug.io/
           git add *
           git commit -m "auto deploy by github action at $dateString"
-          git push -i ../private_key
+          git push
           rm ../private_key
