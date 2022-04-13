@@ -34,7 +34,7 @@ const _hmt = _hmt || [];
 window._hmt = _hmt; // 必须把_hmt挂载到window下，否则找不到
 (function () {
   const hm = document.createElement('script');
-  hm.src = 'https://hm.baidu.com/hm.js?173a01c66c7537c3671d0da847e4fcb1';
+  hm.src = 'https://hm.baidu.com/hm.js?36766813310accee5bec07ffbd0cfcaf';
   const s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(hm, s);
 }());
