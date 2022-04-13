@@ -7,7 +7,10 @@ const routes = [
   {
     path: "/pcHome",
     name: "pcHome",
-    component:()=>import("../views/pc/PcHomePage.vue")
+    component:()=>import("../views/pc/PcHomePage.vue"),
+    meta: {
+      title: 'hyneman\'s blog'
+    }
   },
     
 ]
