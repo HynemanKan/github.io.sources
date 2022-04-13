@@ -29,12 +29,13 @@ new Vue({
 
 //百度统计
 // eslint-disable-next-line
-const _hmt = _hmt || [];
+var _hmt = _hmt || [];
 // eslint-disable-next-line
-window._hmt = _hmt; // 必须把_hmt挂载到window下，否则找不到
-(function () {
-  const hm = document.createElement('script');
-  hm.src = 'https://hm.baidu.com/hm.js?36766813310accee5bec07ffbd0cfcaf';
-  const s = document.getElementsByTagName('script')[0];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?36766813310accee5bec07ffbd0cfcaf";
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
-}());
+})();
+
+
