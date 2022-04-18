@@ -1,24 +1,18 @@
 <template>
   <el-card style="margin: 10px;">
-    <div style="text-align: left">
-      <md-to-article :article.sync="article"></md-to-article>
-    </div>
+    <el-empty :image="emptyImgUrl" description="施工中"></el-empty>
   </el-card>
 </template>
 
 <script>
 // @ is an alias to /src
 
-
-import MdToArticle from "@/components/MdToArticle";
 export default {
   name: 'Home',
-  components: {
-    MdToArticle
-  },
   data(){
     return{
-      article:""
+      article:"",
+      emptyImgUrl:require("@/assets/empty.svg")
     }
   },
   created() {

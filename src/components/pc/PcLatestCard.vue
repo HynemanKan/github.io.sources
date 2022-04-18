@@ -33,6 +33,6 @@ export default {
     font-size: medium;text-align: left;
   }
   .articleTitle:hover{
-    text-shadow: 5px 5px 5px #404040;
+    color: #409EFF;
   }
 </style>
