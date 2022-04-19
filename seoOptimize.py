@@ -6,9 +6,9 @@ from config import SEO_TARGET
 
 print("start seo optimize")
 # json data Join
-doJsonMix(SEO_TARGET)
+seoTarget = doJsonMix(SEO_TARGET)
 # jinja init
 env = Environment(loader=FileSystemLoader(Path(os.getcwd()).joinpath(SEO_TARGET["templatePath"])))
-pageGen = PageGen(SEO_TARGET,env)
+pageGen = PageGen(seoTarget,env)
 pageGen.gen()
 print("seo optimize finish")

@@ -12,7 +12,8 @@ SEO_TARGET={
             "realPath":"/#/friendLink",
             "title":"友情链接",
             "data": {
-                "title": "友情链接",
+                "title": "$$super('title')",
+                "realPath":"$$super('realPath')",
                 "friendlyLink": "$$include('./public/data/friendlyLink.json')"
             }
         }
