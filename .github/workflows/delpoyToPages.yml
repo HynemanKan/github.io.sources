@@ -20,7 +20,7 @@ jobs:
 
       - name: seo optimize 🔧
         run : |
-          pip3 install jinja
+          python3 -m pip install jinja2
           python3 ./seoOptimize.py
 
       - name: Deploy 🚀

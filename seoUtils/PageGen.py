@@ -23,6 +23,7 @@ class PageGen:
         pathCheckCreate(outPagePath)
         with open(outPagePath,"w",encoding="utf-8") as file:
             file.write(outHtml)
+        print(f'gen page {Path(self.seoRoot).joinpath(target["path"])} name as {target["title"]}')
         return target["path"],target["title"]
 
     def genPage(self,target:dict):
@@ -45,5 +46,6 @@ class PageGen:
         source = source.replace("{% seoInsert %}",outHtml)
         with open(self.insertPoint,"w",encoding="utf-8") as file:
             file.write(source)
+        print(f"entry Insert to {Path(self.webRoot).joinpath(self.seoTarget['insertPoint'])}")
 
 
