@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <noscript>
+        {% for item in friendlyLink %}
+            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endfor %}
+    </noscript>
+    <script>
+        window.location="{{ realPath }}";
+    </script>
+</body>
+</html>
