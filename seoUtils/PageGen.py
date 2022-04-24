@@ -17,14 +17,14 @@ class PageGen:
         self.pageGenMethod["singlePage"]=self._singlePageGen
 
     def _singlePageGen(self, target:dict):
-        outPagePath = Path(self.seoRoot).joinpath(target["path"])
+        outPagePath = Path(self.webRoot).joinpath(self.seoRoot).joinpath(target["path"])
         template = self.env.get_template(target["template"])
         outHtml = template.render(**target["data"])
         pathCheckCreate(outPagePath)
         with open(outPagePath,"w",encoding="utf-8") as file:
             file.write(outHtml)
         print(f'gen page {Path(self.seoRoot).joinpath(target["path"])} name as {target["title"]}')
-        return target["path"],target["title"]
+        return Path(self.seoRoot).joinpath(target["path"]),target["title"]
 
     def genPage(self,target:dict):
         if target["type"] not in self.pageGenMethod.keys():

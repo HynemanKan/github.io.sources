@@ -137,11 +137,6 @@ export default {
           this.statistics = res.data;
         });
   },
-  mounted() {
-    window.setTimeout(() => {
-      this.$router.replace("/pcHome");
-    }, 200);
-  }
 }
 </script>
 

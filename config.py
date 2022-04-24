@@ -2,7 +2,7 @@ SEO_TARGET={
     "templatePath": "./seoTemplate",
     "webRoot": "./dist",
     "insertPoint": "index.html",
-    "seoRoot": "./dist/seo",
+    "seoRoot": "./seo",
     "template": "entry.html",
     "pages": [
         {
