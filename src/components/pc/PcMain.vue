@@ -115,7 +115,7 @@ export default {
       latestArticle: [
         {
           "title": "从 Google Analytics 的统计代码说起 —— 谈谈 script 标签的 async 和 defer 属性",
-          "path": "script-async-defer/",
+          "path": "/article/script-async-defer",
           "date": "2022-03-31"
         }
       ],
@@ -135,6 +135,14 @@ export default {
     this.$axios.get("/data/index/statistics.json")
         .then(res => {
           this.statistics = res.data;
+        });
+    this.$axios.get('/data/index/latestArticle.json')
+        .then(res=>{
+          this.latestArticle=res.data;
+        });
+    this.$axios.get('/data/index/historyData.json')
+        .then(res=>{
+          this.historyData=res.data;
         });
   },
 }

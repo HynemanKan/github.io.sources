@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pc-main v-if="!isPhone"></pc-main>
+    <pc-main v-if="true"></pc-main>
     <mobile-main v-else></mobile-main>
   </div>
 </template>

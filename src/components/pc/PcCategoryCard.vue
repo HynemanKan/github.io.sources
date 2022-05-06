@@ -3,19 +3,8 @@
     <div slot="header" class="clearfix">
       <span style="float: left;">标签</span>
     </div>
-    <div>
-      <div
-          v-for="category in categories"
-          :key="category.path"
-          @click="jumpTo('/categories/'+category.path)"
-          style="padding: 5px 0 5px 0;">
-        <el-row justify="space-between" type="flex">
-          <el-col :span="4">{{ category.name }}</el-col>
-          <el-col :span="4">
-            <el-tag type="info">{{ category.count }}</el-tag>
-          </el-col>
-        </el-row>
-      </div>
+    <div class="tagsBlock">
+        <el-button type="text" v-for="tag in categories" :key="tag.name" class="tag">#{{tag.name}}</el-button>
     </div>
   </el-card>
 </template>
@@ -34,5 +23,13 @@ export default {
 </script>
 
 <style scoped>
-
+.tagsBlock{
+  float: left;
+  margin-bottom: 20px;
+}
+.tag {
+  margin-right: 10px;
+  display: inline-block;
+  color: #909399;
+}
 </style>

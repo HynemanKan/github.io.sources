@@ -15,11 +15,5 @@ export default {
       emptyImgUrl:require("@/assets/empty.svg")
     }
   },
-  created() {
-    this.$axios.get("/data/article/bilibili-vertex-bot.md")
-        .then(res=>{
-          this.article=res.data;
-        })
-  }
 }
 </script>

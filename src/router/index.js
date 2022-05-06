@@ -15,10 +15,15 @@ const routes = [
   {
     path: '/friendLink',
     name: "friendLink",
-    component:()=>import("../views/pc/friendlyLinkPage.vue"),
+    component:()=>import("../views/pc/pcFriendlyLinkPage"),
     meta: {
       title: '友情链接'
     }
+  },
+  {
+    path: '/article/:articleName',
+    name: "articlePage",
+    component:()=>import("../views/pc/pcArticlePage")
   }
 ]
 

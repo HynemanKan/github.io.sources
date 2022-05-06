@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "friendlyLinkPage",
+  name: "pcFriendlyLinkPage",
   methods:{
     jumpToOutside(link){
       window.open(link);
