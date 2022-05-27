@@ -16,6 +16,7 @@ Vue.directive('highlight', function (el) {
     hljs.highlightBlock(block)
   })
 })
+axios.defaults.baseURL = "./";
 Vue.prototype.$axios = axios;
 NutUI.install(Vue);
 Vue.use(ElementUI);

@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/friendLink',
     name: "friendLink",
-    component:()=>import("../views/pc/pcFriendlyLinkPage"),
+    component:()=>import("../views/pc/pcFriendlyLinkPage.vue"),
     meta: {
       title: '友情链接'
     }
@@ -23,12 +23,16 @@ const routes = [
   {
     path: '/article/:articleName',
     name: "articlePage",
-    component:()=>import("../views/pc/pcArticlePage")
+    component:()=>import("../views/pc/pcArticlePage.vue")
+  },{
+    path: "/list/:type/:target",
+    name: "listPage",
+    component:()=>import("../views/pc/pcListArticlePage.vue")
   }
 ]
 
 const router = new VueRouter({
-  base: process.env.BASE_URL,
+  base: "./",
   routes
 })
 
