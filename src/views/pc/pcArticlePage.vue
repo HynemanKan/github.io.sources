@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted() {
-      this.$axios.get("/data/article/"+this.$route.params.articleName+".md")
+      this.$axios.get("/data/article/"+this.$route.params.articleName)
           .then(res=>{
             this.article=res.data;
           })

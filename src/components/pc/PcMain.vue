@@ -1,6 +1,6 @@
 <template xmlns:el-col="http://www.w3.org/1999/html">
   <el-container>
-    <el-header style="height: 7.5vh;background-color: #ffffff;box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);">
+    <el-header style="height: 60px;background-color: #ffffff;box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);">
       <el-row style="height: 100%">
         <el-col :span="1">
           <div><p>&nbsp;</p></div>
@@ -33,19 +33,17 @@
             <p style="padding: 2vh 0 2vh 0;font-size: 15px;">摸🐟</p>
           </div>
         </el-col>
-        <el-col :offset="14" :span="1" style="height: 100%;padding: 5px;">
-          <el-button icon="el-icon-s-tools" style="color: #0f0f0f" type="text"></el-button>
-        </el-col>
       </el-row>
     </el-header>
-    <el-main style="height: 87.5vh;">
-      <el-row style="height: 82vh;">
+    <el-main style="height: calc(95vh - 60px);padding: 10px;">
+      <el-row style="height: 100%;">
         <el-col :span="6">
           <pc-avatar-card :statistics.sync="statistics"></pc-avatar-card>
+          <pc-group-card :group-data.sync="groupData"></pc-group-card>
           <pc-category-card :categories.sync="categories"></pc-category-card>
         </el-col>
         <el-col :span="12" class="mainWindow">
-          <router-view></router-view>
+          <router-view ></router-view>
         </el-col>
         <el-col :span="6">
           <pc-latest-card :latest-article.sync="latestArticle"></pc-latest-card>
@@ -86,39 +84,18 @@ import PcAvatarCard from "@/components/pc/PcAvatarCard";
 import PcCategoryCard from "@/components/pc/PcCategoryCard";
 import PcHistoryCard from "@/components/pc/PcHistoryCard";
 import PcLatestCard from "@/components/pc/PcLatestCard";
+import PcGroupCard from "@/components/pc/PcGroupCard";
 
 export default {
   name: "PcMain",
-  components: {PcLatestCard, PcHistoryCard, PcCategoryCard, PcAvatarCard},
+  components: {PcGroupCard, PcLatestCard, PcHistoryCard, PcCategoryCard, PcAvatarCard},
   data() {
     return {
       categories: [],
-      statistics: [
-        {
-          "name": "文章",
-          "count": 15
-        },
-        {
-          "name": "分类",
-          "count": 2
-        }
-      ],
-      historyData: [
-        {
-          "name": "2022",
-          "count": 1
-        },
-        {
-          "name": "2021",
-          "count": 0
-        }],
-      latestArticle: [
-        {
-          "title": "从 Google Analytics 的统计代码说起 —— 谈谈 script 标签的 async 和 defer 属性",
-          "path": "/article/script-async-defer",
-          "date": "2022-03-31"
-        }
-      ],
+      statistics: [],
+      historyData: [],
+      latestArticle:[],
+      groupData:[]
     }
   },
   methods: {
@@ -144,7 +121,14 @@ export default {
         .then(res=>{
           this.historyData=res.data;
         });
+    this.$axios.get("/data/index/groups.json")
+        .then(res=>{
+          this.groupData=res.data;
+        })
   },
+  mounted() {
+    console.log(this.$route.path);
+  }
 }
 </script>
 

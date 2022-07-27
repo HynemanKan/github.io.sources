@@ -8,7 +8,7 @@
           v-for="article in LatestArticle"
           :key="article.path">
         <p style="font-size: x-small;text-align: left">{{article.date}}</p>
-        <p class="articleTitle" @click="jumpTo('/article/'+article.path)">{{ article.title }}</p>
+        <p class="articleTitle" @click="jumpTo('/article/'+article.name)">{{ article.title }}</p>
         <el-divider></el-divider>
       </div>
     </div>

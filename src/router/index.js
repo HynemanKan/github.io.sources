@@ -5,8 +5,8 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/pcHome",
-    name: "pcHome",
+    path: "/",
+    name: "Home",
     component:()=>import("../views/pc/PcHomePage.vue"),
     meta: {
       title: 'hyneman\'s blog'

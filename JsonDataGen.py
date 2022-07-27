@@ -48,16 +48,20 @@ with open("public/data/index/categories.json","w",encoding="utf-8") as file:
     file.write(json.dumps(categoriesOut))
 
 #group
-groupNames=[]
+groupNames={}
 for a in articles:
-    if a["group"] not in groupNames:
-        groupNames.append(a["group"])
+    if a["group"] not in groupNames.keys():
+        groupNames[a["group"]] = 1
+    else:
+        groupNames[a["group"]] += 1
 groups = []
-for g in groupNames:
+for g in groupNames.keys():
     groups.append({
         "name":g,
-        "path":f"/group/{quote(g,encoding='utf-8')}"
+        "path":f"/group/{quote(g,encoding='utf-8')}",
+        "count":groupNames[g]
     })
+print(groups)
 with open("public/data/index/groups.json","w",encoding="utf-8") as file:
     file.write(json.dumps(groups))
 
@@ -90,6 +94,22 @@ with open("public/data/index/statistics.json","w",encoding="utf-8") as file:
     file.write(json.dumps(statistics))
 #latestArticle
 latestArticle=articles[:3]
+print(latestArticle)
 with open("public/data/index/latestArticle.json",'w',encoding="utf-8") as file:
     file.write(json.dumps(latestArticle))
 
+#historyData
+history={}
+for article in articles:
+    if article["date"][:4] not in history.keys():
+        history[article["date"][:4]]=0
+    history[article["date"][:4]] +=1
+historyData=[]
+for year in history.keys():
+    historyData.append({
+        "name":year,
+        "count":history[year]
+    })
+print(historyData)
+with open("public/data/index/historyData.json",'w',encoding="utf-8") as file:
+    file.write(json.dumps(historyData))
