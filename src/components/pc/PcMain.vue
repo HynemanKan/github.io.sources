@@ -42,7 +42,7 @@
           <pc-group-card :group-data.sync="groupData"></pc-group-card>
           <pc-category-card :categories.sync="categories"></pc-category-card>
         </el-col>
-        <el-col :span="12" class="mainWindow">
+        <el-col :span="12" class="mainWindow" style="height: calc(100% - 20px);margin: 10px 0 10px 0;">
           <router-view ></router-view>
         </el-col>
         <el-col :span="6">

@@ -41,3 +41,6 @@ iptables -t nat -A PREROUTING -p udp -m udp --dport 30010 -j DNAT --to-destinati
 
 在配置网卡后配置静态路由把目标服务的网关修改为NAT服务器后，tcp和udp双向数据就都通了。
 
+
+
+
